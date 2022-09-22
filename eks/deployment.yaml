@@ -17,10 +17,9 @@ spec:
     spec:
       containers:
       - name: express-api
-        image: davideden/weatherapp
+        image: davideden/myapp:1.1
         resources:
           limits:
             memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 8080
