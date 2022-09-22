@@ -1,0 +1,25 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: weatherapp-role
+  namespace: weatherapp-ns
+rules:
+  - apiGroups: ["", "apps"] # "" indicates the core API group
+    resources: ["*"]
+    verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: weatherapp-role-binding
+  namespace: weatherapp-ns
+subjects:
+- kind: ServiceAccount
+  name: weatherapp-role-service-account
+  namespace: weatherapp-ns
+roleRef:
+  kind: Role
+  name: weatherapp-role
+  apiGroup: rbac.authorization.k8s.io
+---
