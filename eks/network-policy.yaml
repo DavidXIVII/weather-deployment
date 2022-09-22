@@ -2,12 +2,12 @@
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: allow-weatherapp-traffic
+  name: allow-express-nodejs-traffic
   namespace: weatherapp-ns
 spec:
   podSelector:
     matchLabels:
-      role: weatherapp-api
+      role: express-api
   ingress:
   -  from:
      -  namespaceSelector:
@@ -15,4 +15,4 @@ spec:
             tier: expressBackend
         podSelector:
           matchLabels:
-            role: weatherapp-api
+            role: express-api
