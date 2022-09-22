@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: express-api
   namespace: weatherapp-ns
-  spec:
+spec:
   replicas: 2
   selector:
     matchLabels:
@@ -23,4 +23,4 @@ metadata:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 5000
+        - containerPort: 8080
