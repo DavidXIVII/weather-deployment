@@ -2,7 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: weatherapp-role
+  name: express-nodejs-role
   namespace: weatherapp-ns
 rules:
   - apiGroups: ["", "apps"] # "" indicates the core API group
@@ -12,14 +12,14 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: weatherapp-role-binding
+  name: express-nodejs-role-binding
   namespace: weatherapp-ns
 subjects:
 - kind: ServiceAccount
-  name: weatherapp-role-service-account
+  name: express-nodejs-service-account
   namespace: weatherapp-ns
 roleRef:
   kind: Role
-  name: weatherapp-role
+  name: express-nodejs-role
   apiGroup: rbac.authorization.k8s.io
 ---
