@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherapp
+  namespace: weatherapp-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: weatherapp
+      role: weatherapp
+  template:
+    metadata:
+      labels:
+        app: weatherapp
+        role: weatherapp
+    spec:
+      containers:
+      - name: weatherapp
+        image: davideden/weatherapp
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
