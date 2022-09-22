@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: weatherapp-api
+  name: express-api
   namespace: weatherapp-ns
-spec:
+  spec:
   replicas: 2
   selector:
     matchLabels:
-      app: weatherapp-api
-      role: weatherapp-api
+      app: express-api
+      role: express-api
   template:
     metadata:
       labels:
-        app: weatherapp-api
-        role: weatherapp-api
+        app: express-api
+        role: express-api
     spec:
       containers:
-      - name: weatherapp-api
+      - name: express-api
         image: davideden/weatherapp
         resources:
           limits:
